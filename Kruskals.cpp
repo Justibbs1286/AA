@@ -1,6 +1,3 @@
-
-
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -71,7 +68,7 @@ public:
 
         int e = 0; // Index variable for result[]
         int i = 0; // Index variable for sorted edges[]
-        while (e < V - 1 && i < E) {
+        while (e < V - 1 && i < edges.size()) {
             Edge nextEdge = edges[i++];
 
             int x = find(parent, nextEdge.src);
