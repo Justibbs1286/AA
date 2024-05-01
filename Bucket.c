@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -36,19 +35,20 @@ void bucketSort(float arr[], int n) {
     // Create an array of linked list buckets
     int numBuckets = 10; // Assuming numbers are in range 0-9
     struct Node* buckets[numBuckets];
-    for (int i = 0; i < numBuckets; i++) {
+    int i;
+    for ( i = 0; i < numBuckets; i++) {
         buckets[i] = NULL;
     }
 
     // Insert elements into buckets
-    for (int i = 0; i < n; i++) {
+    for ( i = 0; i < n; i++) {
         int index = (int)(arr[i] * numBuckets); // Assuming each bucket holds numbers in range 0-1
         insert(&buckets[index], arr[i]);
     }
 
     // Merge buckets
     int index = 0;
-    for (int i = 0; i < numBuckets; i++) {
+    for ( i = 0; i < numBuckets; i++) {
         struct Node* current = buckets[i];
         while (current != NULL) {
             arr[index++] = current->data;
@@ -58,20 +58,20 @@ void bucketSort(float arr[], int n) {
 }
 
 int main() {
-    int n;
+    int n,i;
     printf("Enter the number of elements: ");
     scanf("%d", &n);
 
     float arr[n];
     printf("Enter the elements: ");
-    for (int i = 0; i < n; i++) {
+    for ( i = 0; i < n; i++) {
         scanf("%f", &arr[i]);
     }
 
     bucketSort(arr, n);
 
     printf("Sorted array: ");
-    for (int i = 0; i < n; i++) {
+    for ( i = 0; i < n; i++) {
         printf("%.2f ", arr[i]);
     }
     printf("\n");
